@@ -1,38 +1,78 @@
-// script.js
-
-// Mobile navigation toggle
-const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelector('.nav-links');
-
-navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+// LOADER
+window.addEventListener("load",()=>{
+  const loader=document.getElementById("loader");
+  loader.style.opacity="0";
+  setTimeout(()=>loader.style.display="none",1000);
 });
 
-// Email copying function
-const copyEmail = () => {
-    const email = document.querySelector('.email-display');
-    navigator.clipboard.writeText(email.innerText)
-        .then(() => alert('Email copied!'))
-        .catch(err => console.error('Error copying email: ', err));
+// THEME
+document.getElementById("theme-toggle").onclick=()=>{
+  document.body.classList.toggle("light");
 };
 
-// Smooth scrolling
-const smoothScroll = (target) => {
-    const scrollToElement = document.querySelector(target);
-    scrollToElement.scrollIntoView({
-        behavior: 'smooth'
-    });
+// TYPING EFFECT
+const typing=document.getElementById("typing");
+const words=["Web Developer","UI Designer","Tech Enthusiast"];
+let i=0,j=0,isDeleting=false;
+
+function type(){
+  let word=words[i];
+  typing.textContent=word.substring(0,j);
+  if(!isDeleting){
+    j++;
+    if(j>word.length){isDeleting=true;}
+  } else {
+    j--;
+    if(j==0){isDeleting=false;i=(i+1)%words.length;}
+  }
+  setTimeout(type,100);
+}
+type();
+
+// COPY EMAIL
+document.getElementById("copy-email").onclick=()=>{
+  const email=document.getElementById("email-text").textContent;
+  navigator.clipboard.writeText(email);
+  alert("Email copied!");
 };
 
-// Form submission
-const form = document.querySelector('form');
-form.addEventListener('submit', (event) => {
-    event.preventDefault(); // Prevent page refresh
-    const formData = new FormData(form);
-    // Handle form data as needed
-    alert('Form submitted!');
+// CURSOR
+const cursor=document.querySelector(".cursor");
+document.addEventListener("mousemove",e=>{
+  cursor.style.left=e.clientX+"px";
+  cursor.style.top=e.clientY+"px";
 });
 
-// Dynamic email display
-const emailElement = document.querySelector('.email-display');
-emailElement.innerText = 'example@example.com'; // Set your desired email here
+// 3D TILT
+document.querySelectorAll(".project").forEach(card=>{
+  card.addEventListener("mousemove",e=>{
+    const rect=card.getBoundingClientRect();
+    const x=e.clientX-rect.left;
+    const y=e.clientY-rect.top;
+    card.style.transform=`rotateX(${(y-rect.height/2)/15}deg) rotateY(${(rect.width/2-x)/15}deg)`;
+  });
+  card.addEventListener("mouseleave",()=>card.style.transform="rotateX(0) rotateY(0)");
+});
+
+// SCROLL REVEAL
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("active");
+    }
+  });
+});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+// SIMPLE CHATBOT
+const chatInput=document.getElementById("chat-input");
+const chatBody=document.getElementById("chat-body");
+
+chatInput.addEventListener("keypress",e=>{
+  if(e.key==="Enter"){
+    chatBody.innerHTML+=`<div>You: ${chatInput.value}</div>`;
+    chatBody.innerHTML+=`<div>AI: I'm Kyo's assistant 🤖</div>`;
+    chatInput.value="";
+    chatBody.scrollTop=chatBody.scrollHeight;
+  }
+});
