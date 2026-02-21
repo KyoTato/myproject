@@ -1,46 +1,38 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const navToggle = document.getElementById("nav-toggle");
-  const nav = document.getElementById("nav");
-  navToggle.addEventListener("click", () => {
-    nav.classList.toggle("open");
-    // keep inline fallback for older browsers
-    nav.style.display = nav.classList.contains("open") ? "block" : "";
-  });
+// script.js
 
-  const form = document.getElementById("contact-form");
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const data = Object.fromEntries(new FormData(form).entries());
-    console.log("Contact form:", data);
-    alert("Thanks! Message captured in console.");
-    form.reset();
-  });
+// Mobile navigation toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
 
-  // Copy email button
-  const copyBtn = document.getElementById("copy-email");
-  if (copyBtn) {
-    copyBtn.addEventListener("click", async () => {
-      const emailEl = document.getElementById("email-text");
-      const email = emailEl ? emailEl.textContent.trim() : "you@example.com";
-      try {
-        await navigator.clipboard.writeText(email);
-        copyBtn.textContent = "Copied!";
-        setTimeout(() => (copyBtn.textContent = "Copy email"), 1800);
-      } catch (err) {
-        // fallback
-        const ta = document.createElement("textarea");
-        ta.value = email;
-        document.body.appendChild(ta);
-        ta.select();
-        try {
-          document.execCommand("copy");
-          copyBtn.textContent = "Copied!";
-        } catch (e) {
-          alert("Copy to clipboard failed — email: " + email);
-        }
-        ta.remove();
-        setTimeout(() => (copyBtn.textContent = "Copy email"), 1800);
-      }
-    });
-  }
+navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
 });
+
+// Email copying function
+const copyEmail = () => {
+    const email = document.querySelector('.email-display');
+    navigator.clipboard.writeText(email.innerText)
+        .then(() => alert('Email copied!'))
+        .catch(err => console.error('Error copying email: ', err));
+};
+
+// Smooth scrolling
+const smoothScroll = (target) => {
+    const scrollToElement = document.querySelector(target);
+    scrollToElement.scrollIntoView({
+        behavior: 'smooth'
+    });
+};
+
+// Form submission
+const form = document.querySelector('form');
+form.addEventListener('submit', (event) => {
+    event.preventDefault(); // Prevent page refresh
+    const formData = new FormData(form);
+    // Handle form data as needed
+    alert('Form submitted!');
+});
+
+// Dynamic email display
+const emailElement = document.querySelector('.email-display');
+emailElement.innerText = 'example@example.com'; // Set your desired email here
