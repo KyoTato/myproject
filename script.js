@@ -64,15 +64,3 @@ const observer=new IntersectionObserver(entries=>{
 });
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 
-// SIMPLE CHATBOT
-const chatInput=document.getElementById("chat-input");
-const chatBody=document.getElementById("chat-body");
-
-chatInput.addEventListener("keypress",e=>{
-  if(e.key==="Enter"){
-    chatBody.innerHTML+=`<div>You: ${chatInput.value}</div>`;
-    chatBody.innerHTML+=`<div>AI: I'm Kyo's assistant 🤖</div>`;
-    chatInput.value="";
-    chatBody.scrollTop=chatBody.scrollHeight;
-  }
-});
