@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Website sa bata</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <h1 class="logo">Kyo</h1>
+        <button id="nav-toggle" class="nav-toggle">☰</button>
+        <nav id="nav" class="site-nav">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="container">
+          <h2>Hello — I'm <span class="name">Kyo</span></h2>
+          <p class="lead">Im a Student</p>
+          <p class="hero-actions">
+            <a class="cta" href="#projects">See my work</a>
+            <button id="copy-email" class="cta secondary">Copy email</button>
+          </p>
+        </div>
+      </section>
+
+      <section id="about" class="about container">
+        <div class="about-grid">
+          <div class="about-bio">
+            <h3>About Me</h3>
+            <p>Atik ra ni</p>
+            <p>Primary skills: JavaScript, Python, React, CSS, UI/UX.</p>
+            <p class="small">
+              Taga Malaybalay, Currently studying at Central Mindanao University, pursuing a degree in Information Technology. I have a passion for web development and design, and I enjoy creating beautiful and functional websites. In my free time I like to Play guitar, Mobile Legends and Valorant.
+            </p>
+          </div>
+          <div class="about-avatar">
+            <img src="assets/avatar.png" alt="Kyo" />
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="projects container">
+        <h3>Projects</h3>
+        <div class="project-grid">
+          <article class="project">
+            <h4>Project One</h4>
+            <p>Wala kay atik ra</p>
+            <a href="#" class="link">View</a>
+          </article>
+          <article class="project">
+            <h4>Project Two</h4>
+            <p>wala gyapon</p>
+            <a href="#" class="link">View</a>
+          </article>
+          <article class="project">
+            <h4>Project Three</h4>
+            <p>as usual.</p>
+            <a href="#" class="link">View</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="contact container">
+        <h3>Contact</h3>
+        <p>
+          If you'd like to work together, email me at
+          <strong id="email-text">atikra@gmail        Resolve-DnsName example.com
+        Resolve-DnsName www.example.com -Type CNAME.com</strong> or use the form
+          below.
+        </p>
+        <form id="contact-form">
+          <label>Name<input type="text" name="name" required /></label>
+          <label>Email<input type="email" name="email" required /></label>
+          <label>Message<textarea name="message" required></textarea></label>
+          <button type="submit">Send</button>
+        </form>
+        <div class="socials">
+          <a href="#">GitHub</a> · <a href="#">LinkedIn</a> ·
+          <a href="#">Twitter</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">© 2026 Kyo</div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
