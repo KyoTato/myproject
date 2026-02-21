@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Kyo | Developer Portfolio</title>
+
+<link rel="stylesheet" href="styles.css" />
+
+<!-- FontAwesome Icons -->
+<script src="https://kit.fontawesome.com/7a4b62b0a4.js" crossorigin="anonymous"></script>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <h1 class="loader-text">Kyo</h1>
+</div>
+
+<!-- PARTICLE BACKGROUND -->
+<div id="particles"></div>
+
+<!-- CURSOR -->
+<div class="cursor"></div>
+
+<header class="site-header">
+  <div class="container header-flex">
+    <h1 class="logo">Kyo</h1>
+
+    <div>
+      <button id="theme-toggle">🌙</button>
+    </div>
+
+    <nav class="site-nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section id="home" class="hero">
+  <h2>Hello — I'm <span class="gradient-text">Kyo</span></h2>
+  <p><span id="typing"></span></p>
+
+  <div class="hero-actions">
+    <a href="#projects" class="cta">See My Work</a>
+    <button id="copy-email" class="cta secondary">Copy Email</button>
+  </div>
+</section>
+
+<section id="about" class="reveal">
+  <h3>About Me</h3>
+  <p>IT Student at CMU. Passionate about modern web design and interactive experiences.</p>
+</section>
+
+<section id="projects" class="reveal">
+<div class="project-grid">
+
+  <div class="project">
+    <img src="assets/project1.jpg" alt="Project 1">
+    <h4>Project One</h4>
+    <p>Short description of your project.</p>
+  </div>
+
+  <div class="project">
+    <img src="assets/project2.jpg" alt="Project 2">
+    <h4>Project Two</h4>
+    <p>Short description of your project.</p>
+  </div>
+
+  <div class="project">
+    <img src="assets/project3.jpg" alt="Project 3">
+    <h4>Project Three</h4>
+    <p>Short description of your project.</p>
+  </div>
+
+</div>
+</section>
+
+<section id="contact" class="reveal">
+  <h3>Contact</h3>
+
+  <!-- 🔥 CHANGE THIS TO YOUR REAL EMAIL -->
+  <p>Email: <strong id="email-text">lumintaokyo@gmail.com</strong></p>
+
+  <form id="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+
+  <div class="socials">
+
+    <!-- 🔥🔥🔥 PUT YOUR REAL LINKS BELOW 🔥🔥🔥 -->
+
+    <a href="https://www.instagram.com/kyokusanagi400" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="https://www.facebook.com/gd.lumintao?mibextid=wwXIfr&rdid=mrgNMqnCjKDGKl9z&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1NqKmUFuxy%2F%3Fmibextid%3DwwXIfr" target="_blank">
+      <i class="fab fa-facebook"></i>
+    </a>
+
+    <a href="http://www.tiktok.com/@_k____1" target="_blank">
+      <i class="fab fa-tiktok"></i>
+    </a>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+© 2026 Kyo
+</footer>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
